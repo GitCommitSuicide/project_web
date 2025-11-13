@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Header -->
+    <div class="mb-8">
+        <h1 class="text-3xl font-bold text-gray-900 mb-2">Your Groups</h1>
+        <p class="text-gray-600">Manage your expense groups and track balances</p>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex flex-col sm:flex-row gap-4 mb-8">
+        <a href="{{ url_for('create_group') }}" class="bg-gradient-to-r from-primary-500 to-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-primary-600 hover:to-primary-700 transition-all transform hover:scale-105 shadow-lg flex items-center justify-center">
+            <i class="fas fa-plus mr-2"></i>
+            Create New Group
+        </a>
+        <a href="{{ url_for('join_group') }}" class="bg-white text-primary-600 px-6 py-3 rounded-lg font-semibold border-2 border-primary-200 hover:border-primary-300 transition-all flex items-center justify-center">
+            <i class="fas fa-users mr-2"></i>
+            Join Group
+        </a>
+    </div>
+
+    <!-- Groups Grid -->
+    {% if groups %}
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for group in groups %}
+        <div class="bg-white rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition-all transform hover:scale-105">
+            <div class="p-6">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="flex-1">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">{{ group.name }}</h3>
+                        {% if group.description %}
+                        <p class="text-gray-600 text-sm mb-3">{{ group.description }}</p>
+                        {% endif %}
+                    </div>
+                    <div class="w-12 h-12 bg-gradient-to-r from-primary-500 to-accent-500 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-receipt text-white"></i>
+                    </div>
+                </div>
+                
+                <div class="flex items-center justify-between mb-4">
+                    <div class="text-sm text-gray-500">
+                        <i class="fas fa-key mr-1"></i>
+                        Code: <span class="font-mono font-semibold">{{ group.code }}</span>
+                    </div>
+                    <div class="text-sm text-gray-500">
+                        <i class="fas fa-users mr-1"></i>
+                        {{ group.members|length }} members
+                    </div>
+                </div>
+                
+                <a href="{{ url_for('group_detail', group_id=group.id) }}" class="block w-full bg-primary-50 text-primary-600 py-2 px-4 rounded-lg text-center font-semibold hover:bg-primary-100 transition-all">
+                    View Group
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="text-center py-16">
+        <div class="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-users text-gray-400 text-3xl"></i>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">No Groups Yet</h3>
+        <p class="text-gray-600 mb-6">Create your first group or join an existing one to get started</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="{{ url_for('create_group') }}" class="bg-gradient-to-r from-primary-500 to-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:from-primary-600 hover:to-primary-700 transition-all">
+                Create Group
+            </a>
+            <a href="{{ url_for('join_group') }}" class="bg-white text-primary-600 px-6 py-3 rounded-lg font-semibold border-2 border-primary-200 hover:border-primary-300 transition-all">
+                Join Group
+            </a>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

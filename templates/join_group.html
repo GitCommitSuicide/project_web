@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="bg-white rounded-xl shadow-lg border border-gray-200 p-8">
+        <div class="text-center mb-8">
+            <div class="w-16 h-16 bg-gradient-to-r from-accent-500 to-primary-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-users text-white text-2xl"></i>
+            </div>
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Join Group</h1>
+            <p class="text-gray-600">Enter the group code to join an existing expense group</p>
+        </div>
+
+        <form id="joinGroupForm" class="space-y-6">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">Group Code *</label>
+                <input type="text" id="code" required maxlength="6" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all text-center text-2xl font-mono tracking-widest uppercase" placeholder="ABC123" style="letter-spacing: 0.5em;">
+            </div>
+
+            <div class="bg-accent-50 border border-accent-200 rounded-lg p-4">
+                <div class="flex items-start">
+                    <i class="fas fa-lightbulb text-accent-500 mr-2 mt-1"></i>
+                    <div class="text-accent-700 text-sm">
+                        <p class="font-semibold mb-1">Need a group code?</p>
+                        <p>Ask the group creator to share the 6-character code with you</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex gap-4">
+                <button type="submit" class="flex-1 bg-gradient-to-r from-accent-500 to-accent-600 text-white py-3 px-4 rounded-lg font-semibold hover:from-accent-600 hover:to-accent-700 transition-all transform hover:scale-105 shadow-lg">
+                    Join Group
+                </button>
+                <a href="{{ url_for('dashboard') }}" class="flex-1 bg-gray-100 text-gray-700 py-3 px-4 rounded-lg font-semibold hover:bg-gray-200 transition-all text-center">
+                    Cancel
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+// Auto-uppercase and format code input
+document.getElementById('code').addEventListener('input', function(e) {
+    e.target.value = e.target.value.toUpperCase();
+});
+
+document.getElementById('joinGroupForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const formData = {
+        code: document.getElementById('code').value
+    };
+    
+    try {
+        const response = await fetch('{{ url_for("join_group") }}', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            showToast('Successfully joined the group!', 'success');
+            setTimeout(() => {
+                window.location.href = result.redirect;
+            }, 1000);
+        } else {
+            showToast(result.message, 'error');
+        }
+    } catch (error) {
+        showToast('An error occurred. Please try again.', 'error');
+    }
+});
+</script>
+{% endblock %}

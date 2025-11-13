@@ -1,0 +1,269 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="min-h-[100vh] w-full  ">
+    <header class="w-full  shadow-md ">
+        <nav class="w-full py-4 md:w-[1200px] sticky flex justify-between items-center md:m-auto px-2 md:px-0 ">
+            <div class=" logo flex gap-2">
+
+                <div class=" bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg p-[5px]  ">
+
+                    <svg class="w-5 h-5 text-white " fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4">
+                        </path>
+                    </svg>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-800 cursor-pointer"> Splitly Pro</h2>
+            </div>
+
+            <div class="links md:flex md:gap-5 text-gray-600 font-semibold hidden md:block ">
+                <a href="#features" class="hover:text-[#315DEA] hover:scale-[1.1]  duration-300 transition-all">
+                    Features</a>
+                <a href="#howitworks" class="hover:text-[#315DEA] hover:scale-[1.1] duration-300 transition-all">How it
+                    works</a>
+
+                <a href="#about" class="hover:text-[#315DEA] hover:scale-[1.1] duration-300 transition-all">
+                    About Us</a>
+            </div>
+            <div>
+                <ul class="log flex gap-3">
+                    <li class="hover:scale-[1.1] duration-300 transition-all ">
+                        <a href="{{ url_for('login') }}"
+                            class=" text-gray-600 font-medium rounded-md hover:text-white hover:bg-[#8738EA] px-3 py-2 duration-300 transition-all">
+                            Log In</a>
+                    </li>
+                    <li class="hover:scale-[1.1] duration-300 transition-all ">
+                        <a href="{{ url_for('register') }}"
+                            class="bg-[#8738EA] px-3 py-2 rounded-md text-white font-medium hover:bg-[#6C44EB]  ">Sign
+                            Up</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section class="hero w-full bg-[#F6F5FF] mt-1">
+        <div class="herosection md:w-[1200px] md:flex m-auto">
+            <div class="leftsider md:w-1/2 px-[25px] py-[75px]">
+                <h1 class="font-bold text-[55px] text-gray-800 leading-[55px]">Split expenses,
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-blue-600"> track
+                        easily
+                    </span>
+                </h1>
+
+                <p class="text-gray-600 text-[18px] py-6">Never worry about who owes what again. Splitly Pro makes it simple
+                    to
+                    track shared expenses and settle up with friends.</p>
+
+                    <a href="{{ url_for('register') }}">
+                <button
+                    class="bg-[#7E22CE] text-xl  rounded-md hover:bg-[#9334E1] duration-300 transition-all hover:scale-[1.1] px-5 text-white font-semibold  py-4">
+                    Get Started Free
+                </button>
+                </a>
+
+            </div>
+
+            <div class="rightsider md:w-1/2 flex items-center">
+                <div class="card border-1 w-[75%] m-auto px-5 py-8 shadow-2xl rounded-md bg-white  ">
+                    <div class=" flex justify-between items-center">
+                        <p class="font-medium text-xl my-2">Trip to Goa </p>
+                        <p class="text-gray-600">₹12,450</p>
+                    </div>
+                    <div class=" flex  justify-between items-center">
+                        <div class="flex items-center gap-5 my-2 items-center">
+                            <p class="bg-[#F3E8FF] text-purple-600 px-4 rounded-full py-2 text-center "> A</p> Anil
+                        </div>
+                        <p class="text-green-600">₹2,150</p>
+                    </div>
+                    <div class=" flex  justify-between items-center">
+                        <div class="flex items-center gap-5 my-2 items-center">
+                            <p class="bg-[#DBE9FE] text-blue-900 px-4 rounded-full py-2 text-center "> P</p> Priya
+                        </div>
+                        <p class="text-red-600">-₹850</p>
+                    </div>
+                    <div class=" flex  justify-between items-center">
+                        <div class="flex items-center gap-5 my-2 items-center">
+                            <p class="bg-red-100 text-red-900 px-4 rounded-full py-2 text-center "> G</p> Geeta
+                        </div>
+                        <p class="text-red-600">-₹1,300</p>
+                    </div>
+                    <button
+                        class="w-full mt-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white py-2 rounded-lg text-sm font-medium">
+                        Settle Up
+
+                    </button>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+    <section id="features" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 fade-up">Why Choose Splitly Pro?</h2>
+                <p class="mt-4 text-xl text-gray-600 fade-up stagger-1">Everything you need to manage shared expenses
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center fade-up stagger-1">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Easy Expense Tracking</h3>
+                    <p class="text-gray-600">Add expenses in seconds and keep track of who paid what</p>
+                </div>
+
+                <div class="text-center fade-up stagger-2">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Smart Splitting</h3>
+                    <p class="text-gray-600">Split bills equally or by custom amounts with multiple people</p>
+                </div>
+
+                <div class="text-center fade-up stagger-3">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Instant Settlement</h3>
+                    <p class="text-gray-600">See who owes what and settle up with integrated payments</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="howitworks" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 fade-up">How It Works</h2>
+                <p class="mt-4 text-xl text-gray-600 fade-up stagger-1">Get started in 3 simple steps</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center slide-left stagger-1">
+                    <div
+                        class="w-12 h-12 bg-purple-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                        1</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Add Expense</h3>
+                    <p class="text-gray-600">Enter the expense amount and select who was involved</p>
+                </div>
+
+                <div class="text-center fade-up stagger-2">
+                    <div
+                        class="w-12 h-12 bg-purple-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                        2</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Split & Track</h3>
+                    <p class="text-gray-600">Choose how to split and we'll calculate who owes what</p>
+                </div>
+
+                <div class="text-center slide-right stagger-3">
+                    <div
+                        class="w-12 h-12 bg-purple-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                        3</div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Settle Up</h3>
+                    <p class="text-gray-600">Pay or request payment directly through the app</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="py-20 bg-gradient-to-r from-purple-600 to-blue-600">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 fade-up">Ready to Split Smart?</h2>
+            <p class="text-xl text-purple-100 mb-8 fade-up stagger-1">Join thousands of users who trust Splitly Pro for
+                their expense tracking</p>
+                <a href="{{ url_for('register') }}">
+            <button
+                class="bg-white text-purple-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 bounce-hover fade-up stagger-2">
+                Start Free Today
+            </button>
+            </a>
+        </div>
+    </section>
+
+    <section class="text-center py-8   border-t my-2 " id="about">
+
+        <h2 class="text-[35px]   font-bold"> About Us </h2>
+        <h4 class="text-2xl my-4 ">Welcome to Splitly Pro – Smart Group Expense Splitter! </h4> <br>
+
+        <p class="md:w-[750px] m-auto text-xl text-gray-800"> We are a passionate team of developers committed to
+            solving one of the most common problems faced by
+            friends, families, and colleagues—tracking and settling shared expenses easily and transparently </p>
+
+
+
+
+    </section>
+
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div
+                            class="w-8 h-8 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4">
+                                </path>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold">Splitly Pro</span>
+                    </div>
+                    <p class="text-gray-400">Making expense splitting simple for everyone.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4">Product</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Features</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Pricing</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Security</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">About</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">8180999377</a></li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Splitly Pro. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+</div>
+{% endblock %}
