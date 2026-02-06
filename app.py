@@ -16,7 +16,7 @@ from reportlab.lib.enums import TA_CENTER, TA_LEFT, TA_RIGHT
 import io
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'your-secret-key-here'
+app.config['SECRET_KEY'] = 'anil123'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///splitly.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
